@@ -19,3 +19,16 @@ export type DocBlock =
   | { type: "Code"; code: string; language: string }
   | { type: "Callout"; calloutType: "info" | "warning" | "tip"; title?: string; text: string }
   | { type: "Presentation"; presentationType: "youtube" | "slides"; embedUrl: string; title: string };
+
+export interface Playlist {
+  slug: string;
+  title: string;
+  description: string;
+  postSlugs: string[];
+}
+
+export interface MusicPlaylist {
+  id: string;
+  title: string;
+  spotifyUrl: string;
+}

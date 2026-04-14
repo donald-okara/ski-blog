@@ -1,20 +1,7 @@
 import { Link } from "react-router-dom";
 import { BookOpen, Headphones } from "lucide-react";
-
-const ARTICLE_PLAYLISTS = [
-  {
-    slug: "compose-internals",
-    title: "Jetpack Compose Internals",
-    description: "A deep dive into the inner workings of Compose, from the compiler plugin to the layout phase. Best read in order.",
-    articleCount: 4,
-  },
-  {
-    slug: "kotlin-architecture",
-    title: "Modern Kotlin Architecture",
-    description: "Patterns and practices for building scalable Android applications using modern Kotlin features and coroutines.",
-    articleCount: 3,
-  }
-];
+import { ARTICLE_PLAYLISTS, MUSIC_PLAYLISTS } from "@/data/playlists";
+import { SpotifyPlaylist } from "@/components/SpotifyPlaylist";
 
 export function Playlists() {
   return (
@@ -52,7 +39,7 @@ export function Playlists() {
               </div>
               <div className="mt-6 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-fg">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-fg/10 text-fg">
-                  {playlist.articleCount}
+                  {playlist.postSlugs.length}
                 </span>
                 Articles
               </div>
@@ -69,35 +56,13 @@ export function Playlists() {
         </div>
         
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-bg p-4 shadow-sm">
-            <h3 className="mb-4 px-2 text-sm font-medium text-fg">Deep Focus / Lofi</h3>
-            <iframe 
-              style={{ borderRadius: '12px' }} 
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0" 
-              width="100%" 
-              height="152" 
-              frameBorder="0" 
-              allowFullScreen 
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-              loading="lazy"
-              title="Lofi Beats"
-            ></iframe>
-          </div>
-          
-          <div className="rounded-2xl border border-border bg-bg p-4 shadow-sm">
-            <h3 className="mb-4 px-2 text-sm font-medium text-fg">Synthwave / Cyberpunk</h3>
-            <iframe 
-              style={{ borderRadius: '12px' }} 
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdLEN7aqioJC?utm_source=generator&theme=0" 
-              width="100%" 
-              height="152" 
-              frameBorder="0" 
-              allowFullScreen 
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-              loading="lazy"
-              title="Synthwave Beats"
-            ></iframe>
-          </div>
+          {MUSIC_PLAYLISTS.map((playlist) => (
+            <SpotifyPlaylist 
+              key={playlist.id}
+              title={playlist.title}
+              spotifyUrl={playlist.spotifyUrl}
+            />
+          ))}
         </div>
       </section>
     </div>

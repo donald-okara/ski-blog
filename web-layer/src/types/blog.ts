@@ -1,6 +1,14 @@
-export interface Post {
+export interface PostMetadata {
   id: string;
+  slug: string;
   title: string;
+  date: string;
+  readingTime: string;
+  tags: string[];
+  excerpt?: string;
+}
+
+export interface Post extends PostMetadata {
   blocks: DocBlock[];
 }
 

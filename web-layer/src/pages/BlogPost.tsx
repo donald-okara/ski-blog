@@ -7,6 +7,7 @@ import { Callout } from "@/components/Callout";
 import { PresentationEmbed } from "@/components/PresentationEmbed";
 import { ArrowLeft } from "lucide-react";
 import { Post, DocBlock } from "@/types/blog";
+import { POSTS } from "@/data/posts";
 
 export function BlogPost() {
   const { slug } = useParams();
@@ -14,37 +15,8 @@ export function BlogPost() {
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
-    // In a real app, you would fetch this data from your core module or an API
-    // For now, we'll simulate loading a post that matches the structure
-    const mockPost: Post = {
-      id: slug || "1",
-      title: "The Mechanics of State Hoisting in Jetpack Compose",
-      blocks: [
-        { type: "P", text: "State hoisting is a pattern of moving state to a component's caller to make a component stateless. When applied to Jetpack Compose, this pattern often means introducing two parameters to the composable:" },
-        { type: "H", text: "Why Hoist State?" },
-        { 
-          type: "Callout", 
-          calloutType: "tip", 
-          title: "Single Source of Truth", 
-          text: "By moving state to the caller, we ensure there is only one source of truth for that state. This helps prevent bugs where multiple components get out of sync." 
-        },
-        { 
-          type: "Code", 
-          language: "kotlin", 
-          code: `@Composable\nfun StatefulCounter() {\n    var count by remember { mutableStateOf(0) }\n    \n    Button(onClick = { count++ }) {\n        Text("Count: $count")\n    }\n}` 
-        },
-        { type: "H", text: "Interactive Example" },
-        { type: "Demo", id: "state-hoisting-demo" },
-        { 
-          type: "Presentation", 
-          presentationType: "youtube", 
-          title: "The Mechanics of State Hoisting - Droidcon", 
-          embedUrl: "https://www.youtube.com/embed/SMOhl9RK0BA" 
-        }
-      ]
-    };
-
-    setPost(mockPost);
+    const foundPost = POSTS.find(p => p.slug === slug);
+    setPost(foundPost || null);
   }, [slug]);
 
   useEffect(() => {
@@ -117,19 +89,19 @@ export function BlogPost() {
         {/* Article Header */}
         <header className="mb-14">
           <div className="mb-6 flex items-center gap-x-4 text-sm text-muted-fg">
-            <time dateTime="2023-10-24">Oct 24, 2023</time>
+            <time dateTime={post.date}>{post.date}</time>
             <span className="flex items-center gap-1">
               <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
-              8 min read
+              {post.readingTime}
             </span>
           </div>
           <h1 className="mb-6 text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl leading-tight text-balance">
             {post.title}
           </h1>
           <div className="flex flex-wrap items-center gap-2">
-            <TagPill>Compose</TagPill>
-            <TagPill>Architecture</TagPill>
-            <TagPill>State</TagPill>
+            {post.tags.map(tag => (
+              <TagPill key={tag}>{tag}</TagPill>
+            ))}
           </div>
         </header>
 
@@ -142,24 +114,22 @@ export function BlogPost() {
         <div className="mt-16">
           <h3 className="text-lg font-semibold tracking-tight text-fg mb-6">Related Articles</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <Link to="/post/custom-layouts-compose" className="group block p-5 rounded-xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors">
-              <div className="text-sm font-medium text-fg group-hover:text-fg/80 transition-colors mb-2">
-                Building a Custom Flow Layout from Scratch
-              </div>
-              <div className="flex items-center gap-2">
-                <TagPill>Compose</TagPill>
-                <TagPill>UI</TagPill>
-              </div>
-            </Link>
-            <Link to="/post/compose-performance" className="group block p-5 rounded-xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors">
-              <div className="text-sm font-medium text-fg group-hover:text-fg/80 transition-colors mb-2">
-                Gotchas in Compose Performance
-              </div>
-              <div className="flex items-center gap-2">
-                <TagPill>Compose</TagPill>
-                <TagPill>Performance</TagPill>
-              </div>
-            </Link>
+            {POSTS.filter(p => p.slug !== slug).slice(0, 2).map(relatedPost => (
+              <Link 
+                key={relatedPost.slug}
+                to={`/post/${relatedPost.slug}`} 
+                className="group block p-5 rounded-xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors"
+              >
+                <div className="text-sm font-medium text-fg group-hover:text-fg/80 transition-colors mb-2 text-balance">
+                  {relatedPost.title}
+                </div>
+                <div className="flex items-center gap-2">
+                  {relatedPost.tags.slice(0, 2).map(tag => (
+                    <TagPill key={tag}>{tag}</TagPill>
+                  ))}
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </article>

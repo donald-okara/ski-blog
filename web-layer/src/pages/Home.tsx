@@ -1,33 +1,7 @@
 import { ArticleCard } from "@/components/ArticleCard";
 import { DemoEmbed } from "@/components/DemoEmbed";
 import { Newsletter } from "@/components/Newsletter";
-
-const ARTICLES = [
-  {
-    slug: "compose-state-hoisting",
-    title: "The Mechanics of State Hoisting in Jetpack Compose",
-    excerpt: "Understanding how unidirectional data flow translates to Compose's state management model, and why hoisting is more than just passing callbacks.",
-    tags: ["Compose", "Architecture", "State"],
-    readingTime: "8 min read",
-    date: "Oct 24, 2023",
-  },
-  {
-    slug: "kotlin-context-receivers",
-    title: "Designing APIs with Context Receivers",
-    excerpt: "A deep dive into how context receivers change API design in Kotlin, moving beyond extension functions to true contextual abstractions.",
-    tags: ["Kotlin", "API Design"],
-    readingTime: "12 min read",
-    date: "Sep 15, 2023",
-  },
-  {
-    slug: "custom-layouts-compose",
-    title: "Building a Custom Flow Layout from Scratch",
-    excerpt: "Step-by-step guide to the layout phase in Compose. We'll build a custom FlowRow layout that handles complex wrapping and alignment.",
-    tags: ["Compose", "UI", "Layout"],
-    readingTime: "15 min read",
-    date: "Aug 02, 2023",
-  },
-];
+import { POSTS } from "@/data/posts";
 
 export function Home() {
   return (
@@ -80,8 +54,16 @@ export function Home() {
       <section id="articles" className="mb-24">
         <h2 className="mb-8 text-xl font-semibold tracking-tight text-fg">Latest Articles</h2>
         <div className="flex flex-col divide-y divide-border/50">
-          {ARTICLES.map((article) => (
-            <ArticleCard key={article.slug} {...article} />
+          {POSTS.map((post) => (
+            <ArticleCard 
+              key={post.slug} 
+              slug={post.slug}
+              title={post.title}
+              excerpt={post.excerpt || ""}
+              tags={post.tags}
+              readingTime={post.readingTime}
+              date={post.date}
+            />
           ))}
         </div>
       </section>

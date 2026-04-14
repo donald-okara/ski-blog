@@ -10,6 +10,12 @@ sealed class DocBlock {
     data class P(val text: String) : DocBlock()
     @Serializable
     data class Demo(val id: String) : DocBlock()
+    @Serializable
+    data class Code(val code: String, val language: String) : DocBlock()
+    @Serializable
+    data class Callout(val calloutType: String, val title: String? = null, val text: String) : DocBlock()
+    @Serializable
+    data class Presentation(val presentationType: String, val embedUrl: String, val title: String) : DocBlock()
 }
 
 @Serializable

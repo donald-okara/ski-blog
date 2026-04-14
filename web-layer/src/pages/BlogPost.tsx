@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { TagPill } from "@/components/TagPill";
 import { CodeBlock } from "@/components/CodeBlock";
 import { DemoEmbed } from "@/components/DemoEmbed";
@@ -77,7 +78,10 @@ export function BlogPost() {
         />
       </div>
 
-      <article className="mx-auto max-w-[700px] px-6 py-12 md:py-20">
+      <motion.article 
+        layoutId={`article-${slug}`}
+        className="mx-auto max-w-[700px] px-6 py-12 md:py-20"
+      >
         <Link 
           to="/" 
           className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-fg transition-colors hover:text-fg"
@@ -88,16 +92,22 @@ export function BlogPost() {
 
         {/* Article Header */}
         <header className="mb-14">
-          <div className="mb-6 flex items-center gap-x-4 text-sm text-muted-fg">
+          <motion.div 
+            layoutId={`article-meta-${slug}`}
+            className="mb-6 flex items-center gap-x-4 text-sm text-muted-fg"
+          >
             <time dateTime={post.date}>{post.date}</time>
             <span className="flex items-center gap-1">
               <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
               {post.readingTime}
             </span>
-          </div>
-          <h1 className="mb-6 text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl leading-tight text-balance">
+          </motion.div>
+          <motion.h1 
+            layoutId={`article-title-${slug}`}
+            className="mb-6 text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl leading-tight text-balance"
+          >
             {post.title}
-          </h1>
+          </motion.h1>
           <div className="flex flex-wrap items-center gap-2">
             {post.tags.map(tag => (
               <TagPill key={tag}>{tag}</TagPill>
@@ -132,7 +142,7 @@ export function BlogPost() {
             ))}
           </div>
         </div>
-      </article>
+      </motion.article>
     </>
   );
 }

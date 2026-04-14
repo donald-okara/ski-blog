@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { DemoEmbed } from "@/components/DemoEmbed";
 import { Newsletter } from "@/components/Newsletter";
@@ -11,7 +12,13 @@ export function Home() {
   const isEmpty = !hasPosts && !hasFeatured;
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-12 md:py-20">
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="mx-auto max-w-4xl px-6 py-12 md:py-20"
+    >
       {/* Hero Section */}
       <section className="mb-20 max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
@@ -94,6 +101,6 @@ export function Home() {
 
       {/* Newsletter */}
       <Newsletter />
-    </div>
+    </motion.div>
   );
 }

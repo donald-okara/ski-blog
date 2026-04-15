@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Play } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
 import { ARTICLE_PLAYLISTS } from "@/data/playlists";
 import { POSTS } from "@/data/posts";
 import { calculateReadingTime } from "@/lib/utils";
@@ -33,18 +34,17 @@ export function PlaylistDetail() {
         Back to playlists
       </Link>
 
-      <header className="mb-16">
-        <div className="mb-4 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-fg">
+      <PageHeader 
+        title={playlist.title} 
+        description={playlist.description}
+        serif
+        reverse
+      >
+        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-fg">
           <Play className="h-4 w-4" />
           Series
         </div>
-        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl leading-tight text-balance">
-          {playlist.title}
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-muted-fg font-serif">
-          {playlist.description}
-        </p>
-      </header>
+      </PageHeader>
 
       <div className="flex flex-col">
         {playlistPosts.map((post, index) => {

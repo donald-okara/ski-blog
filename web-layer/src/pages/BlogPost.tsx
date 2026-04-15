@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { TagPill } from "@/components/TagPill";
-import { CodeBlock } from "@/components/CodeBlock";
-import { DemoEmbed } from "@/components/DemoEmbed";
-import { Callout } from "@/components/Callout";
-import { PresentationEmbed } from "@/components/PresentationEmbed";
+import { PageHeader } from "@/components/PageHeader";
+import { ContentRenderer } from "@/components/ContentRenderer";
+import { AuthorSection } from "@/components/AuthorSection";
 import { ArrowLeft } from "lucide-react";
-import { Post, DocBlock } from "@/types/blog";
+import { Post } from "@/types/blog";
 import { POSTS } from "@/data/posts";
+import { AUTHORS } from "@/data/authors";
 import { calculateReadingTime } from "@/lib/utils";
 
 export function BlogPost() {
@@ -33,41 +33,9 @@ export function BlogPost() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const renderBlock = (block: DocBlock, index: number) => {
-    switch (block.type) {
-      case "H":
-        return <h2 key={index} className="text-2xl font-semibold mt-12 mb-6 text-fg">{block.text}</h2>;
-      case "P":
-        return <p key={index} className="mb-6 text-fg/90 leading-relaxed">{block.text}</p>;
-      case "Code":
-        return <CodeBlock key={index} language={block.language} code={block.code} />;
-      case "Callout":
-        return (
-          <Callout key={index} type={block.calloutType} title={block.title}>
-            {block.text}
-          </Callout>
-        );
-      case "Demo":
-        return (
-          <DemoEmbed key={index} title="Interactive Demo">
-             <div className="text-center text-sm text-muted-fg">Demo {block.id} content</div>
-          </DemoEmbed>
-        );
-      case "Presentation":
-        return (
-          <PresentationEmbed 
-            key={index} 
-            type={block.presentationType} 
-            title={block.title} 
-            embedUrl={block.embedUrl} 
-          />
-        );
-      default:
-        return null;
-    }
-  };
-
   if (!post) return <div className="p-12 text-center">Loading...</div>;
+
+  const postAuthors = AUTHORS.filter(a => post.authorIds.includes(a.id));
 
   return (
     <>
@@ -90,32 +58,30 @@ export function BlogPost() {
           Back to articles
         </Link>
 
-        <header className="mb-14">
-          <div 
-            className="mb-6 flex items-center gap-x-4 text-sm text-muted-fg"
-          >
+        <PageHeader 
+          title={post.title} 
+          className="mb-14"
+          reverse
+        >
+          <div className="flex items-center gap-x-4 text-sm text-muted-fg">
             <time dateTime={post.date}>{post.date}</time>
             <span className="flex items-center gap-1">
               <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
               {calculateReadingTime(post)}
             </span>
           </div>
-          <h1 
-            className="mb-6 text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl leading-tight text-balance"
-          >
-            {post.title}
-          </h1>
           <div className="flex flex-wrap items-center gap-2">
             {post.tags.map(tag => (
               <TagPill key={tag}>{tag}</TagPill>
             ))}
           </div>
-        </header>
+        </PageHeader>
 
         {/* Content Body */}
-        <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-fg prose-a:underline-offset-4 hover:prose-a:text-fg/80 prose-p:leading-relaxed prose-p:text-fg/90 font-serif">
-          {post.blocks.map((block, index) => renderBlock(block, index))}
-        </div>
+        <ContentRenderer blocks={post.blocks} />
+
+        {/* Author Section */}
+        {postAuthors.length > 0 && <AuthorSection authors={postAuthors} />}
 
         {/* Footer / Related Articles */}
         <div className="mt-16">

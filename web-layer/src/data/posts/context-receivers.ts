@@ -8,6 +8,7 @@ export const contextReceiversPostMetadata: PostMetadata = {
   date: "Sep 15, 2023",
   tags: ["Kotlin", "API Design"],
   excerpt: "A deep dive into how context receivers change API design in Kotlin, moving beyond extension functions to true contextual abstractions.",
+  authorIds: ["donald","alexdev"],
 };
 
 export const contextReceiversPostBlocks: DocBlock[] = [

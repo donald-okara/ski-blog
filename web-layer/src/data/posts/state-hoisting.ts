@@ -8,6 +8,7 @@ export const stateHoistingPostMetadata: PostMetadata = {
   date: "Oct 24, 2023",
   tags: ["Compose", "Architecture", "State"],
   excerpt: "Understanding how unidirectional data flow translates to Compose's state management model, and why hoisting is more than just passing callbacks.",
+  authorIds: ["donald", "alexdev"],
 };
 
 export const stateHoistingPostBlocks: DocBlock[] = [

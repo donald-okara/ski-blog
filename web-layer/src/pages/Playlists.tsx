@@ -1,19 +1,16 @@
 import { Link } from "react-router-dom";
 import { BookOpen, Headphones } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
 import { ARTICLE_PLAYLISTS, MUSIC_PLAYLISTS } from "@/data/playlists";
 import { SpotifyPlaylist } from "@/components/SpotifyPlaylist";
 
 export function Playlists() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-12 md:py-20">
-      <header className="mb-16 max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
-          Playlists
-        </h1>
-        <p className="mt-4 text-lg text-muted-fg">
-          Curated collections of articles designed to be read in sequence, plus some tracks to keep you in the flow state.
-        </p>
-      </header>
+      <PageHeader 
+        title="Playlists" 
+        description="Curated collections of articles designed to be read in sequence, plus some tracks to keep you in the flow state."
+      />
 
       {/* Article Playlists */}
       <section className="mb-20">

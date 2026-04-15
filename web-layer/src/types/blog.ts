@@ -1,3 +1,20 @@
+export interface Social {
+  id: string;
+  name: string;
+  url: string;
+  icon: "twitter" | "github" | "linkedin" | "site" | "playstore" | "globe" | "smartphone";
+}
+
+export interface Author {
+  id: string;
+  slug: string;
+  name: string;
+  bio: string;
+  description: string;
+  avatar: string;
+  socials: Social[];
+}
+
 export interface PostMetadata {
   id: string;
   slug: string;
@@ -5,6 +22,7 @@ export interface PostMetadata {
   date: string;
   tags: string[];
   excerpt?: string;
+  authorIds: string[];
 }
 
 export interface Post extends PostMetadata {
@@ -17,7 +35,9 @@ export type DocBlock =
   | { type: "Demo"; id: string }
   | { type: "Code"; code: string; language: string }
   | { type: "Callout"; calloutType: "info" | "warning" | "tip"; title?: string; text: string }
-  | { type: "Presentation"; presentationType: "youtube" | "slides"; embedUrl: string; title: string };
+  | { type: "Presentation"; presentationType: "youtube" | "slides"; embedUrl: string; title: string }
+  | { type: "Image"; src: string; alt: string; className?: string; grayscale?: boolean; objectPosition?: string }
+  | { type: "Tags"; tags: string[] };
 
 export interface Playlist {
   slug: string;

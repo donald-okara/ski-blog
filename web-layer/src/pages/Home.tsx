@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { DemoEmbed } from "@/components/DemoEmbed";
 import { Newsletter } from "@/components/Newsletter";
+import { PageHeader } from "@/components/PageHeader";
 import { POSTS, FEATURED_POST } from "@/data/posts";
 import { Search } from "lucide-react";
 import { calculateReadingTime } from "@/lib/utils";
@@ -16,14 +17,12 @@ export function Home() {
     <div className="mx-auto max-w-4xl px-6 py-12 md:py-20"
     >
       {/* Hero Section */}
-      <section className="mb-20 max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
-          ski blog
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-muted-fg">
-          A Kotlin-first engineering journal for Compose, systems, and UI thinking.
-        </p>
-        <div className="mt-8 flex items-center gap-4">
+      <PageHeader 
+        title="ski blog" 
+        description="A Kotlin-first engineering journal for Compose, systems, and UI thinking."
+        className="mb-20"
+      >
+        <div className="flex items-center gap-4">
           <a
             href="#articles"
             className="inline-flex h-10 items-center justify-center rounded-md bg-fg px-6 text-sm font-medium text-bg transition-colors hover:bg-fg/90"
@@ -31,7 +30,7 @@ export function Home() {
             Read Articles
           </a>
         </div>
-      </section>
+      </PageHeader>
 
       {isEmpty ? (
         <section className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-border rounded-2xl bg-muted/5">

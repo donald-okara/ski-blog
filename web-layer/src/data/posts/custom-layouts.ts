@@ -8,6 +8,7 @@ export const customLayoutsPostMetadata: PostMetadata = {
   date: "Aug 02, 2023",
   tags: ["Compose", "UI", "Layout"],
   excerpt: "Step-by-step guide to the layout phase in Compose. We'll build a custom FlowRow layout that handles complex wrapping and alignment.",
+  authorIds: ["alexdev"],
 };
 
 export const customLayoutsPostBlocks: DocBlock[] = [

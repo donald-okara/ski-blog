@@ -31,14 +31,11 @@ export function Footer() {
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted-fg">
-            <a href="#" className="hover:text-fg transition-colors">
-              Twitter
+            <a href="https://www.linkedin.com/in/donald-isoe-a21310255/" target="_blank" className="hover:text-fg transition-colors">
+              LinkedIn
             </a>
-            <a href="#" className="hover:text-fg transition-colors">
+            <a href="https://github.com/donald-okara" target="_blank" className="hover:text-fg transition-colors">
               GitHub
-            </a>
-            <a href="#" className="hover:text-fg transition-colors">
-              RSS
             </a>
           </div>
           <div className="text-xs text-muted-fg">

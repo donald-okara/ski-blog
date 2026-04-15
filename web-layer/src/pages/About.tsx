@@ -6,7 +6,7 @@ const ABOUT_CONTENT: DocBlock[] = [
   {
     type: "Image",
     src: "/profiles/donald.jpg",
-    alt: "Profile",
+    alt: "Donald Isoe smelling what The Rock is cooking",
     className: "h-[400px]",
     grayscale: true
   },

@@ -1,6 +1,7 @@
 import { Check, Copy } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
+import { highlightKotlin } from "@/lib/highlighter";
 
 interface CodeBlockProps {
   code: string;
@@ -16,6 +17,17 @@ export function CodeBlock({ code, language, className }: CodeBlockProps) {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const highlightedCode = useMemo(() => {
+    if (language.toLowerCase() === "kotlin") {
+      return highlightKotlin(code);
+    }
+    // Fallback to basic escaping for other languages
+    return code
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }, [code, language]);
 
   return (
     <div className={cn("group relative my-6 overflow-hidden rounded-lg border border-border bg-code-bg", className)}>
@@ -33,7 +45,9 @@ export function CodeBlock({ code, language, className }: CodeBlockProps) {
       </div>
       <div className="overflow-x-auto p-4">
         <pre className="text-sm leading-relaxed text-fg font-mono">
-          <code>{code}</code>
+          <code
+            dangerouslySetInnerHTML={{ __html: highlightedCode }}
+          />
         </pre>
       </div>
     </div>

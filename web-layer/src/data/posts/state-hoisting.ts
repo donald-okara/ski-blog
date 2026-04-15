@@ -6,7 +6,6 @@ export const stateHoistingPostMetadata: PostMetadata = {
   slug: SLUGS.COMPOSE_STATE_HOISTING,
   title: "The Mechanics of State Hoisting in Jetpack Compose",
   date: "Oct 24, 2023",
-  readingTime: "8 min read",
   tags: ["Compose", "Architecture", "State"],
   excerpt: "Understanding how unidirectional data flow translates to Compose's state management model, and why hoisting is more than just passing callbacks.",
 };

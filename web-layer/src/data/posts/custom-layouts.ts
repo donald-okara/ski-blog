@@ -6,7 +6,6 @@ export const customLayoutsPostMetadata: PostMetadata = {
   slug: SLUGS.CUSTOM_LAYOUTS_COMPOSE,
   title: "Building a Custom Flow Layout from Scratch",
   date: "Aug 02, 2023",
-  readingTime: "15 min read",
   tags: ["Compose", "UI", "Layout"],
   excerpt: "Step-by-step guide to the layout phase in Compose. We'll build a custom FlowRow layout that handles complex wrapping and alignment.",
 };

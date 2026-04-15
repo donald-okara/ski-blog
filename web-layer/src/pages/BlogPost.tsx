@@ -9,6 +9,7 @@ import { PresentationEmbed } from "@/components/PresentationEmbed";
 import { ArrowLeft } from "lucide-react";
 import { Post, DocBlock } from "@/types/blog";
 import { POSTS } from "@/data/posts";
+import { calculateReadingTime } from "@/lib/utils";
 
 export function BlogPost() {
   const { slug } = useParams();
@@ -96,7 +97,7 @@ export function BlogPost() {
             <time dateTime={post.date}>{post.date}</time>
             <span className="flex items-center gap-1">
               <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
-              {post.readingTime}
+              {calculateReadingTime(post)}
             </span>
           </div>
           <h1 

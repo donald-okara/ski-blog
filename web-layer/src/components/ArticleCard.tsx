@@ -6,18 +6,18 @@ interface ArticleCardProps {
   title: string;
   excerpt: string;
   tags: string[];
-  readingTime: string;
   date: string;
   slug: string;
+  readingTime?: string; // Optional for cases where we don't have the full post (e.g. mock data)
 }
 
 export function ArticleCard({
   title,
   excerpt,
   tags,
-  readingTime,
   date,
   slug,
+  readingTime,
 }: ArticleCardProps) {
   return (
     <motion.article 
@@ -29,10 +29,12 @@ export function ArticleCard({
         className="flex items-center gap-x-4 text-xs text-muted-fg mb-3"
       >
         <time dateTime={date}>{date}</time>
-        <span className="flex items-center gap-1">
-          <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
-          {readingTime}
-        </span>
+        {readingTime && (
+          <span className="flex items-center gap-1">
+            <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
+            {readingTime}
+          </span>
+        )}
       </motion.div>
       <div className="group relative">
         <motion.h3 

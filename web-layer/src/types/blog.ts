@@ -3,7 +3,6 @@ export interface PostMetadata {
   slug: string;
   title: string;
   date: string;
-  readingTime: string;
   tags: string[];
   excerpt?: string;
 }

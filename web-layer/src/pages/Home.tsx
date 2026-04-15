@@ -4,6 +4,7 @@ import { DemoEmbed } from "@/components/DemoEmbed";
 import { Newsletter } from "@/components/Newsletter";
 import { POSTS, FEATURED_POST } from "@/data/posts";
 import { Search } from "lucide-react";
+import { calculateReadingTime } from "@/lib/utils";
 
 export function Home() {
   const hasPosts = POSTS.length > 0;
@@ -84,7 +85,7 @@ export function Home() {
                     title={post.title}
                     excerpt={post.excerpt || ""}
                     tags={post.tags}
-                    readingTime={post.readingTime}
+                    readingTime={calculateReadingTime(post)}
                     date={post.date}
                   />
                 ))}

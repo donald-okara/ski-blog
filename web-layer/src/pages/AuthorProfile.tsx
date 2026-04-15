@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArrowLeft, Github, Linkedin, Twitter, Globe, Smartphone } from "lucide-react";
 import { SLUGS } from "@/constants/slugs";
+import { POSTS } from "@/data/posts";
+import { calculateReadingTime } from "@/lib/utils";
 
 // Mock data for the author
 const AUTHOR = {
@@ -26,7 +28,6 @@ const AUTHOR_ARTICLES = [
     title: "The Mechanics of State Hoisting in Jetpack Compose",
     excerpt: "Understanding how unidirectional data flow translates to Compose's state management model, and why hoisting is more than just passing callbacks.",
     tags: ["Compose", "Architecture", "State"],
-    readingTime: "8 min read",
     date: "Oct 24, 2023",
   },
   {
@@ -34,7 +35,6 @@ const AUTHOR_ARTICLES = [
     title: "Building a Custom Flow Layout from Scratch",
     excerpt: "Step-by-step guide to the layout phase in Compose. We'll build a custom FlowRow layout that handles complex wrapping and alignment.",
     tags: ["Compose", "UI", "Layout"],
-    readingTime: "15 min read",
     date: "Aug 02, 2023",
   },
 ];
@@ -119,9 +119,14 @@ export function AuthorProfile() {
         </div>
         
         <div className="flex flex-col divide-y divide-border/50">
-          {AUTHOR_ARTICLES.map((article) => (
-            <ArticleCard key={article.slug} {...article} />
-          ))}
+          {AUTHOR_ARTICLES.map((article) => {
+            const fullPost = POSTS.find(p => p.slug === article.slug);
+            const readingTime = fullPost ? calculateReadingTime(fullPost) : undefined;
+            
+            return (
+              <ArticleCard key={article.slug} {...article} readingTime={readingTime} />
+            );
+          })}
         </div>
       </section>
     </div>

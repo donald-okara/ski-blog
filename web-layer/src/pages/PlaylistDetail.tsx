@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Play } from "lucide-react";
 import { ARTICLE_PLAYLISTS } from "@/data/playlists";
 import { POSTS } from "@/data/posts";
+import { calculateReadingTime } from "@/lib/utils";
 
 export function PlaylistDetail() {
   const { slug } = useParams();
@@ -60,7 +61,7 @@ export function PlaylistDetail() {
                 <div className="mb-3 flex items-center gap-x-4 text-xs text-muted-fg">
                   <span className="flex items-center gap-1">
                     <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
-                    {post.readingTime}
+                    {calculateReadingTime(post)}
                   </span>
                 </div>
                 <h3 className="text-xl font-semibold leading-tight text-fg group-hover:text-fg/80 transition-colors">

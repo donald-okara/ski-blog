@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ArrowLeft, Github, Linkedin, Twitter, Globe, Smartphone } from "lucide-react";
+import { SLUGS } from "@/constants/slugs";
 
 // Mock data for the author
 const AUTHOR = {
@@ -21,7 +22,7 @@ const AUTHOR = {
 // Mock data for articles written by the author
 const AUTHOR_ARTICLES = [
   {
-    slug: "compose-state-hoisting",
+    slug: SLUGS.COMPOSE_STATE_HOISTING,
     title: "The Mechanics of State Hoisting in Jetpack Compose",
     excerpt: "Understanding how unidirectional data flow translates to Compose's state management model, and why hoisting is more than just passing callbacks.",
     tags: ["Compose", "Architecture", "State"],
@@ -29,7 +30,7 @@ const AUTHOR_ARTICLES = [
     date: "Oct 24, 2023",
   },
   {
-    slug: "custom-layouts-compose",
+    slug: SLUGS.CUSTOM_LAYOUTS_COMPOSE,
     title: "Building a Custom Flow Layout from Scratch",
     excerpt: "Step-by-step guide to the layout phase in Compose. We'll build a custom FlowRow layout that handles complex wrapping and alignment.",
     tags: ["Compose", "UI", "Layout"],

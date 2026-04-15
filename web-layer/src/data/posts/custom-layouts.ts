@@ -1,8 +1,9 @@
 import { Post, PostMetadata, DocBlock } from "@/types/blog";
+import { SLUGS } from "@/constants/slugs";
 
 export const customLayoutsPostMetadata: PostMetadata = {
   id: "3",
-  slug: "custom-layouts-compose",
+  slug: SLUGS.CUSTOM_LAYOUTS_COMPOSE,
   title: "Building a Custom Flow Layout from Scratch",
   date: "Aug 02, 2023",
   readingTime: "15 min read",

@@ -12,7 +12,7 @@ export function Footer() {
             "Every cup supports coffee farmers… and a slightly sleep-deprived dev"
           </p>
           <a 
-            href="https://buymeacoffee.com" 
+            href="buymeacoffee.com/donaldokara"
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:scale-105 active:scale-95"

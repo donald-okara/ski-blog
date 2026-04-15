@@ -56,7 +56,7 @@ export function PlaylistDetail() {
                 {numberString}
               </div>
               
-              <div className="relative z-10 pl-12 md:pl-16">
+              <div className="relative z-10 pl-16 md:pl-24">
                 <div className="mb-3 flex items-center gap-x-4 text-xs text-muted-fg">
                   <span className="flex items-center gap-1">
                     <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>

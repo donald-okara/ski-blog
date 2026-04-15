@@ -1,8 +1,9 @@
 import { Post, PostMetadata, DocBlock } from "@/types/blog";
+import { SLUGS } from "@/constants/slugs";
 
 export const stateHoistingPostMetadata: PostMetadata = {
   id: "1",
-  slug: "compose-state-hoisting",
+  slug: SLUGS.COMPOSE_STATE_HOISTING,
   title: "The Mechanics of State Hoisting in Jetpack Compose",
   date: "Oct 24, 2023",
   readingTime: "8 min read",

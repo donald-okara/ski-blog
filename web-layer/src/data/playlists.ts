@@ -1,22 +1,23 @@
 import { Playlist, MusicPlaylist } from "@/types/blog";
+import { SLUGS } from "@/constants/slugs";
 
 export const ARTICLE_PLAYLISTS: Playlist[] = [
   {
-    slug: "compose-internals",
+    slug: SLUGS.COMPOSE_INTERNALS,
     title: "Jetpack Compose Internals",
     description: "A deep dive into the inner workings of Compose, from the compiler plugin to the layout phase. Best read in order.",
     postSlugs: [
-      "compose-state-hoisting",
-      "custom-layouts-compose",
-      "compose-performance"
+      SLUGS.COMPOSE_STATE_HOISTING,
+      SLUGS.CUSTOM_LAYOUTS_COMPOSE,
+      SLUGS.COMPOSE_PERFORMANCE
     ],
   },
   {
-    slug: "kotlin-architecture",
+    slug: SLUGS.KOTLIN_ARCHITECTURE,
     title: "Modern Kotlin Architecture",
     description: "Patterns and practices for building scalable Android applications using modern Kotlin features and coroutines.",
     postSlugs: [
-      "kotlin-context-receivers"
+      SLUGS.KOTLIN_CONTEXT_RECEIVERS
     ],
   }
 ];

@@ -1,8 +1,9 @@
 import { Post, PostMetadata, DocBlock } from "@/types/blog";
+import { SLUGS } from "@/constants/slugs";
 
 export const contextReceiversPostMetadata: PostMetadata = {
   id: "2",
-  slug: "kotlin-context-receivers",
+  slug: SLUGS.KOTLIN_CONTEXT_RECEIVERS,
   title: "Designing APIs with Context Receivers",
   date: "Sep 15, 2023",
   readingTime: "12 min read",

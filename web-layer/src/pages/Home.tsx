@@ -12,12 +12,7 @@ export function Home() {
   const isEmpty = !hasPosts && !hasFeatured;
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="mx-auto max-w-4xl px-6 py-12 md:py-20"
+    <div className="mx-auto max-w-4xl px-6 py-12 md:py-20"
     >
       {/* Hero Section */}
       <section className="mb-20 max-w-2xl">
@@ -101,6 +96,6 @@ export function Home() {
 
       {/* Newsletter */}
       <Newsletter />
-    </motion.div>
+    </div>
   );
 }

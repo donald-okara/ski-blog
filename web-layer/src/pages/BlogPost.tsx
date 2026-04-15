@@ -78,8 +78,7 @@ export function BlogPost() {
         />
       </div>
 
-      <motion.article 
-        layoutId={`article-${slug}`}
+      <article 
         className="mx-auto max-w-[700px] px-6 py-12 md:py-20"
       >
         <Link 
@@ -90,10 +89,8 @@ export function BlogPost() {
           Back to articles
         </Link>
 
-        {/* Article Header */}
         <header className="mb-14">
-          <motion.div 
-            layoutId={`article-meta-${slug}`}
+          <div 
             className="mb-6 flex items-center gap-x-4 text-sm text-muted-fg"
           >
             <time dateTime={post.date}>{post.date}</time>
@@ -101,13 +98,12 @@ export function BlogPost() {
               <span className="h-1 w-1 rounded-full bg-muted-fg/50"></span>
               {post.readingTime}
             </span>
-          </motion.div>
-          <motion.h1 
-            layoutId={`article-title-${slug}`}
+          </div>
+          <h1 
             className="mb-6 text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl leading-tight text-balance"
           >
             {post.title}
-          </motion.h1>
+          </h1>
           <div className="flex flex-wrap items-center gap-2">
             {post.tags.map(tag => (
               <TagPill key={tag}>{tag}</TagPill>
@@ -142,7 +138,7 @@ export function BlogPost() {
             ))}
           </div>
         </div>
-      </motion.article>
+      </article>
     </>
   );
 }

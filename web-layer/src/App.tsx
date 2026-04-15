@@ -4,7 +4,7 @@
  */
 
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Home } from "@/pages/Home";
@@ -19,14 +19,22 @@ function AnimatedRoutes() {
   
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/post/:slug" element={<BlogPost />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/author/:username" element={<AuthorProfile />} />
-        <Route path="/playlists" element={<Playlists />} />
-        <Route path="/playlist/:slug" element={<PlaylistDetail />} />
-      </Routes>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/post/:slug" element={<BlogPost />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/author/:username" element={<AuthorProfile />} />
+          <Route path="/playlists" element={<Playlists />} />
+          <Route path="/playlist/:slug" element={<PlaylistDetail />} />
+        </Routes>
+      </motion.div>
     </AnimatePresence>
   );
 }

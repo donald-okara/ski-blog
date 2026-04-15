@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'web-layer/**' # Only run when files in web-layer change
+  workflow_dispatch: # Allow manual trigger from the Actions tab
 
 jobs:
   deploy:

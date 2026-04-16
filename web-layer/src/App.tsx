@@ -13,6 +13,7 @@ import { About } from "@/pages/About";
 import { AuthorProfile } from "@/pages/AuthorProfile";
 import { Playlists } from "@/pages/Playlists";
 import { PlaylistDetail } from "@/pages/PlaylistDetail";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -42,6 +43,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-bg text-fg selection:bg-fg/10 selection:text-fg">
         <Navbar />
         <main className="flex-1">

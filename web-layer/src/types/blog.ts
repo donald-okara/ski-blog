@@ -36,8 +36,9 @@ export type DocBlock =
   | { type: "Code"; code: string; language: string }
   | { type: "Callout"; calloutType: "info" | "warning" | "tip"; title?: string; text: string }
   | { type: "Presentation"; presentationType: "youtube" | "slides"; embedUrl: string; title: string }
-  | { type: "Image"; src: string; alt: string; className?: string; grayscale?: boolean; objectPosition?: string }
-  | { type: "Tags"; tags: string[] };
+  | { type: "Image"; src: string; alt: string; className?: string; grayscale?: boolean; objectPosition?: string; width?: string | number; height?: string | number }
+  | { type: "Tags"; tags: string[] }
+  | { type: "Row"; items: { block: DocBlock; ratio: number }[] };
 
 export interface Playlist {
   slug: string;

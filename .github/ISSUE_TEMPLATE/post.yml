@@ -1,0 +1,97 @@
+name: Post + Demo
+description: Create and publish a blog post with an interactive demo
+title: "[POST] <post title>"
+labels: ["post"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What concept are you explaining?
+      placeholder: |
+        e.g. Why Flow is overused in simple fetch scenarios
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should the reader walk away understanding?
+      placeholder: |
+        Clear mental model + practical takeaway
+    validations:
+      required: true
+
+  - type: textarea
+    id: demo
+    attributes:
+      label: Demo Plan
+      description: What will the interactive demo show?
+      placeholder: |
+        - What interaction?
+        - What state changes?
+        - What insight does it reveal?
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: outline
+    attributes:
+      label: Post Outline
+      placeholder: |
+        - Intro
+        - Problem
+        - Explanation
+        - Demo
+        - Conclusion
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      placeholder: |
+        - Write article
+        - Build demo
+        - Deploy demo
+        - Embed iframe
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope
+      placeholder: |
+        - No perfectionism
+        - No over-polishing
+        - No new DSL features unless necessary
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - Post is published
+        - Demo is deployed
+        - Demo is embedded and working
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      placeholder: |
+        - [ ] Draft post
+        - [ ] Build demo
+        - [ ] Deploy demo
+        - [ ] Embed iframe
+        - [ ] Publish
+
+    validations:
+      required: true

@@ -35,6 +35,7 @@ export interface FeaturedContent {
   description: string;
   image: string;
   link: string;
+  label?: string;
 }
 
 export type DocBlock =

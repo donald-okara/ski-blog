@@ -13,6 +13,8 @@ export function FeaturedBlock({ id, hero = false }: FeaturedBlockProps) {
 
   if (!content) return null;
 
+  const buttonLabel = content.label || "Learn More";
+
   if (hero) {
     return (
       <div className="relative overflow-hidden rounded-2xl border border-border bg-muted/5 p-8 transition-all hover:bg-muted/10">
@@ -34,7 +36,7 @@ export function FeaturedBlock({ id, hero = false }: FeaturedBlockProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-md bg-fg px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-fg/90"
             >
-              Learn More
+              {buttonLabel}
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -73,7 +75,7 @@ export function FeaturedBlock({ id, hero = false }: FeaturedBlockProps) {
           <h4 className="font-semibold text-fg mb-1">{content.title}</h4>
           <p className="text-sm text-muted-fg line-clamp-2">{content.description}</p>
           <div className="mt-2 flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
-            Learn more
+            {buttonLabel}
             <ArrowRight className="h-3 w-3" />
           </div>
         </div>

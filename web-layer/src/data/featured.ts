@@ -8,7 +8,8 @@ export const FEATURED_CONTENT: FeaturedContent[] = [
     title: "Advanced Compose Workshop",
     description: "Join our upcoming deep-dive into performance optimization and custom layouts. Early bird tickets available now!",
     image: "https://picsum.photos/200",
-    link: "https://example.com/workshop"
+    link: "https://example.com/workshop",
+    label: "Reserve Seat"
   },
   {
     id: "holiday-sale",

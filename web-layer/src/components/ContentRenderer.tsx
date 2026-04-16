@@ -4,6 +4,7 @@ import { Callout } from "./Callout";
 import { DemoEmbed } from "./DemoEmbed";
 import { PresentationEmbed } from "./PresentationEmbed";
 import { TagPill } from "./TagPill";
+import { FeaturedBlock } from "./FeaturedBlock";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -159,6 +160,9 @@ function RenderBlock({ block }: { block: DocBlock }) {
           ))}
         </div>
       );
+
+    case "Featured":
+      return <FeaturedBlock id={block.id} hero={block.hero} />;
 
     default:
       return null;

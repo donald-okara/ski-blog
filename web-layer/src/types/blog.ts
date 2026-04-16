@@ -29,6 +29,13 @@ export interface Post extends PostMetadata {
   blocks: DocBlock[];
 }
 
+export interface FeaturedContent {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
 export type DocBlock =
   | { type: "H"; text: string }
   | { type: "P"; text: string }
@@ -38,7 +45,8 @@ export type DocBlock =
   | { type: "Presentation"; presentationType: "youtube" | "slides"; embedUrl: string; title: string }
   | { type: "Image"; src: string; alt: string; className?: string; grayscale?: boolean; objectPosition?: string; width?: string | number; height?: string | number }
   | { type: "Tags"; tags: string[] }
-  | { type: "Row"; items: { block: DocBlock; ratio: number }[] };
+  | { type: "Row"; items: { block: DocBlock; ratio: number }[] }
+  | { type: "Featured"; id: string; hero?: boolean };
 
 export interface Playlist {
   slug: string;

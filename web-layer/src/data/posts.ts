@@ -8,8 +8,3 @@ export const POSTS: Post[] = [
   contextReceiversPost,
   customLayoutsPost
 ];
-
-export const FEATURED_POST = {
-  title: "Compose Recomposition Visualizer",
-  description: "Interact with the UI to see exactly which scopes recompose."
-};

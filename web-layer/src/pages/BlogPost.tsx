@@ -5,10 +5,12 @@ import { TagPill } from "@/components/TagPill";
 import { PageHeader } from "@/components/PageHeader";
 import { ContentRenderer } from "@/components/ContentRenderer";
 import { AuthorSection } from "@/components/AuthorSection";
+import { FeaturedBlock } from "@/components/FeaturedBlock";
 import { ArrowLeft } from "lucide-react";
 import { Post } from "@/types/blog";
 import { POSTS } from "@/data/posts";
 import { AUTHORS } from "@/data/authors";
+import { FEATURED_CONTENT_ID } from "@/data/featured";
 import { calculateReadingTime } from "@/lib/utils";
 
 export function BlogPost() {
@@ -82,6 +84,12 @@ export function BlogPost() {
 
         {/* Author Section */}
         {postAuthors.length > 0 && <AuthorSection authors={postAuthors} />}
+
+        {/* Featured Content Footer */}
+        <div className="mt-16">
+           <h3 className="text-sm font-bold uppercase tracking-widest text-muted-fg mb-4">Featured</h3>
+           <FeaturedBlock id={FEATURED_CONTENT_ID} hero={false} />
+        </div>
 
         {/* Footer / Related Articles */}
         <div className="mt-16">

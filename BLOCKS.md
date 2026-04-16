@@ -130,3 +130,16 @@ Embeds an interactive project demo.
 ```json
 { "type": "Demo", "id": "calculator-demo" }
 ```
+
+### 10. Featured (`Featured`)
+Displays a featured announcement or event (data defined in `src/data/featured.ts`).
+- `id`: (String) The identifier for the featured content.
+- `hero`: (Optional Boolean) If true, renders as a large hero section with glowing gradients. Defaults to `false` (compact card).
+
+```json
+{ 
+  "type": "Featured", 
+  "id": "upcoming-workshop", 
+  "hero": true 
+}
+```

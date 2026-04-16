@@ -1,0 +1,79 @@
+name: Feature Issue Template
+description: Standard template for demo/blog system work items
+title: "[FEATURE] <short descriptive title>"
+labels: ["feature"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why this work exists and what problem it solves
+      placeholder: |
+        Explain the motivation briefly. Keep it practical, not theoretical.
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What success looks like in plain terms
+      placeholder: |
+        e.g. A demo can be rendered and embedded in the blog via iframe.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is included in this task
+      placeholder: |
+        - Create demo entry point
+        - Render composable in web target
+        - Setup minimal routing if needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope
+      description: Explicitly what should NOT be done
+      placeholder: |
+        - No CMS work
+        - No analytics
+        - No styling polish
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Clear conditions for completion
+      placeholder: |
+        - App builds successfully
+        - Demo renders in browser
+        - URL is publicly accessible
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: Break down of implementation steps
+      placeholder: |
+        - [ ] Setup KMP project
+        - [ ] Configure web target
+        - [ ] Implement Demo()
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Optional implementation notes or constraints
+      placeholder: |
+        - Keep demo stateless initially
+        - Avoid overengineering abstraction layers

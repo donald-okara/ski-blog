@@ -7,12 +7,14 @@ export const FEATURED_CONTENT: FeaturedContent[] = [
     id: "upcoming-workshop",
     title: "Advanced Compose Workshop",
     description: "Join our upcoming deep-dive into performance optimization and custom layouts. Early bird tickets available now!",
-    image: "https://picsum.photos/200"
+    image: "https://picsum.photos/200",
+    link: "https://example.com/workshop"
   },
   {
     id: "holiday-sale",
     title: "Holiday Course Sale",
     description: "Get 50% off on all our premium Kotlin and Compose courses until the end of the year.",
-    image: "https://picsum.photos/200"
+    image: "https://picsum.photos/200",
+    link: "https://example.com/sale"
   }
 ];

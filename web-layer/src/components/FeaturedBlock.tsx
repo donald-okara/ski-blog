@@ -1,4 +1,5 @@
 import { FEATURED_CONTENT } from "@/data/featured";
+import { ArrowRight } from "lucide-react";
 
 interface FeaturedBlockProps {
   id: string | null;
@@ -19,12 +20,23 @@ export function FeaturedBlock({ id, hero = false }: FeaturedBlockProps) {
         <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
 
         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-          <div className="flex-1 space-y-4 text-center md:text-left">
+          <div className="flex-1 space-y-6 text-center md:text-left">
             <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-600 dark:text-blue-400">
               Featured
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-fg">{content.title}</h2>
-            <p className="text-lg text-muted-fg leading-relaxed">{content.description}</p>
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-fg mb-2">{content.title}</h2>
+              <p className="text-lg text-muted-fg leading-relaxed">{content.description}</p>
+            </div>
+            <a
+              href={content.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md bg-fg px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-fg/90"
+            >
+              Learn More
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
           <div className="w-full md:w-1/3 shrink-0">
             <div className="aspect-square relative rounded-xl overflow-hidden border border-border shadow-2xl">
@@ -42,7 +54,12 @@ export function FeaturedBlock({ id, hero = false }: FeaturedBlockProps) {
   }
 
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:border-fg/20">
+    <a
+      href={content.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:border-fg/20"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
       <div className="relative z-10 flex gap-6 items-center">
         <div className="h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-border">
@@ -52,11 +69,15 @@ export function FeaturedBlock({ id, hero = false }: FeaturedBlockProps) {
             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
           />
         </div>
-        <div>
+        <div className="flex-1">
           <h4 className="font-semibold text-fg mb-1">{content.title}</h4>
           <p className="text-sm text-muted-fg line-clamp-2">{content.description}</p>
+          <div className="mt-2 flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn more
+            <ArrowRight className="h-3 w-3" />
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }

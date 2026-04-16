@@ -8,7 +8,7 @@ const ABOUT_CONTENT: DocBlock[] = [
     src: "/profiles/donald.jpg",
     alt: "Don smelling what The Rock is cooking",
     className: "h-[400px]",
-    grayscale: true
+    grayscale: false
   },
   {
     type: "P",

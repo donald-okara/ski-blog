@@ -43,7 +43,7 @@ export interface FeaturedContent {
 export type DocBlock =
   | { type: "H"; text: string }
   | { type: "P"; text: string }
-  | { type: "Demo"; id: string; url?: string }
+  | { type: "Demo"; id: string; url?: string; label?: string }
   | { type: "Code"; code: string; language: string }
   | { type: "Callout"; calloutType: "info" | "warning" | "tip"; title?: string; text: string }
   | { type: "Presentation"; presentationType: "youtube" | "slides"; embedUrl: string; title: string }

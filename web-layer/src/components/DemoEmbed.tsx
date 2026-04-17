@@ -6,10 +6,11 @@ interface DemoEmbedProps {
   description?: string;
   className?: string;
   url?: string;
+  label?: string;
   children?: React.ReactNode;
 }
 
-export function DemoEmbed({ title, description, className, url, children }: DemoEmbedProps) {
+export function DemoEmbed({ title, description, className, url, label, children }: DemoEmbedProps) {
   return (
     <div className={cn("my-8 overflow-hidden rounded-xl border border-border bg-bg shadow-sm", className)}>
       <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-3">
@@ -23,7 +24,9 @@ export function DemoEmbed({ title, description, className, url, children }: Demo
           )}
         </div>
         <div className="ml-auto flex items-center gap-1.5">
-          <span className="text-[10px] font-medium uppercase tracking-wider text-muted-fg">Interactive Demo</span>
+          <span className="text-[10px] font-medium uppercase tracking-wider text-muted-fg">
+            {label || "Interactive Demo"}
+          </span>
         </div>
       </div>
       <div className={cn(

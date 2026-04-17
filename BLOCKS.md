@@ -126,9 +126,16 @@ Displays a horizontal list of clickable/styled tags.
 ### 9. Demo (`Demo`)
 Embeds an interactive project demo.
 - `id`: (String) The unique identifier for the demo component.
+- `url`: (Optional String) The URL for the demo iframe.
+- `label`: (Optional String) Custom label for the demo header (defaults to "Interactive Demo").
 
 ```json
-{ "type": "Demo", "id": "calculator-demo" }
+{ 
+  "type": "Demo", 
+  "id": "calculator-demo", 
+  "url": "https://example.com/demo", 
+  "label": "Live Calculator" 
+}
 ```
 
 ### 10. Featured (`Featured`)

@@ -26,7 +26,7 @@ export const stateHoistingPostBlocks: DocBlock[] = [
     code: `@Composable\nfun StatefulCounter() {\n    var count by remember { mutableStateOf(0) }\n    \n    Button(onClick = { count++ }) {\n        Text("Count: $count")\n    }\n}` 
   },
   { type: "H", text: "Interactive Example" },
-  { type: "Demo", id: "state-hoisting-demo", url: "https://demo-template-nine.vercel.app/" },
+  { type: "Demo", id: "state-hoisting-demo", label: "Hoist demo", url: "https://demo-template-nine.vercel.app/?text=Are_you_sure?" },
   { 
     type: "Presentation", 
     presentationType: "youtube", 

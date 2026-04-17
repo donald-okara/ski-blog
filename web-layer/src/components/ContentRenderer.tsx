@@ -96,6 +96,7 @@ function RenderBlock({ block }: { block: DocBlock }) {
         <DemoEmbed
           title="Interactive Demo"
           url={block.url}
+          label={block.label}
         />
       );
 
